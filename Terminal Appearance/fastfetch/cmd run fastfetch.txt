@@ -1,0 +1,5 @@
+Run:
+reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "cls & fastfetch" /f
+
+Stop Running:
+reg delete "HKCU\Software\Microsoft\Command Processor" /v AutoRun /f

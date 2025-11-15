@@ -1,0 +1,62 @@
+First of all we need to install Scoop.
+
+Scoop is a command-line package manager for Windows — similar to how Homebrew works on macOS or apt works on Ubuntu.
+
+To install Scoop we open powershell and run:
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+irm get.scoop.sh | iex
+
+Then we use Scoop to install some basic tools:
+scoop install git
+scoop install python
+scoop install neovim
+
+and finally some buckets, like repositories we can draw apps from:
+scoop bucket add extras
+scoop bucket add nerd-fonts
+
+From the nerd-fonts repository we install the JetBrains Mono Nerd Font:
+scoop install JetBrainsMono-NF
+
+
+
+Now we can change the terminal setting to give it a more cozy vibe:
+we open cmd -> click on the arrow next to the new tab -> settings ->
+then the gear at the bottom left that opens the settings.json file
+
+There we delete the settings and copy the ones inside the terrminal_settings.json file.
+(be sure the mono fonts in your system and the settings file have the same name)
+
+
+
+Then we install fastfetch:
+scoop install fastfetch
+
+Next we go to C:\Users\%username% and create a folder named .config which we make hidden
+Inside we copy the fastfetch folder
+(we make sure that inside the config file in source the path has the correct username)
+
+
+
+Now we can enable and disable fastfetch to the cmd using the following commands in powershell:
+Run:
+reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "cls & fastfetch" /f
+
+Stop Running:
+reg delete "HKCU\Software\Microsoft\Command Processor" /v AutoRun /f
+
+
+
+If we want to use the fastfetch in powershell we need to create a profile running the command:
+New-Item -Path $profile.CurrentUserAllHosts -Type File -Force 
+
+The profile settings will be created in documents/windowsPowwershell
+we delete the contents and copy the ones inside the Microsoft.PowerShell_profile.ps1 file.
+(we make sure that inside the profile file the path that calls fastfetch has the correct username)
+
+
+
+Tip:
+⚠️ If you get "execution of scripts is disabled on this system" then do this 👇
+Run the following command in an elevated PowerShell session (Run as Administrator):
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force   
