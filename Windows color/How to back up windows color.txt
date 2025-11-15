@@ -1,0 +1,31 @@
+In Windows 10/11, Windows colors refer to the accent color used throughout the interface. This includes things like:
+
+	Start menu background/shading
+
+	Taskbar highlight color (if enabled)
+
+	Title bars of windows (if enabled)
+
+	Quick Settings / Action Center accents
+
+	Certain outline, highlight, and selection colors in system UI
+
+These colors are controlled in Settings → Personalization → Colors.
+
+
+🔄 How to back up your Windows color settings
+
+Windows stores accent colors in the registry.
+
+	1. Press Win + R, type: 
+	   regedit
+
+	2. Navigate to:
+	   HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM
+
+	3. Right-click DWM → Export
+
+	4. Save the .reg file anywhere (this is your backup).
+
+
+To restore: double-click the .reg file.
